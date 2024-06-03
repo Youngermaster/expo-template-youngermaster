@@ -7,6 +7,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
 
   return (
     <View style={styles.container}>
+      <Text>Hi, name!</Text>
       <Text>Welcome to the Home Page!</Text>
       <Button
         title="Logout"

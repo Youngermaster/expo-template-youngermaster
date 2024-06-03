@@ -1,11 +1,6 @@
 import create from 'zustand';
 import * as SecureStore from 'expo-secure-store';
-
-interface AuthState {
-  isAuthenticated: boolean;
-  authenticate: () => void;
-  logout: () => void;
-}
+import AuthState from '~/models/AuthState';
 
 export const useAuthStore = create<AuthState>((set) => ({
   isAuthenticated: false,
