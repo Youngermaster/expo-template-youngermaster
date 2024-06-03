@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import Button from "~/components/atoms/Button";
 import { useAuthStore } from "~/stores/AuthStore";
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {

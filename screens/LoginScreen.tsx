@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import {
-  View,
-  TextInput,
-  Button,
-  StyleSheet,
-  Image,
-  Dimensions,
-} from "react-native";
+import { View, TextInput, StyleSheet, Image, Dimensions } from "react-native";
+import Button from "~/components/atoms/Button";
 import { useAuthStore } from "~/stores/AuthStore";
 
 const LoginScreen = ({ navigation }: { navigation: any }) => {
