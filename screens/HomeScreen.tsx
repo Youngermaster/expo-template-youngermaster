@@ -1,17 +1,40 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useEffect } from "react";
+import { View, Text, SafeAreaView, StyleSheet, ScrollView } from "react-native";
 import Button from "~/components/atoms/Button";
 import { useAuthStore } from "~/stores/AuthStore";
 import useDriverStore from "~/stores/DriverStore";
+import useVehicleStore from "~/stores/VehicleStore";
+import getVehicles from "~/hooks/useVehicles";
+import VehicleCard from "~/components/atoms/VehicleCard";
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
   const { logout } = useAuthStore();
   const driver = useDriverStore((state) => state.driver);
+  const { vehicles, setVehicles } = useVehicleStore();
+
+  useEffect(() => {
+    const loadVehicles = async () => {
+      const response = await getVehicles();
+      setVehicles(response.vehicles);
+    };
+
+    loadVehicles();
+  }, []);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text>Hi, {driver?.name}!</Text>
       <Text>Welcome to the Home Page!</Text>
+      <ScrollView style={styles.vehicleContainer}>
+        {vehicles.map((vehicle) => (
+          <View key={vehicle.id}>
+            <VehicleCard
+              vehicleName={vehicle.plate}
+              vehicleDescription={vehicle.assignedDrivers.join(", ")}
+            />
+          </View>
+        ))}
+      </ScrollView>
       <Button
         title="Logout"
         onPress={() => {
@@ -19,7 +42,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
           navigation.navigate("Login");
         }}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -28,6 +51,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    padding: 10,
+  },
+  vehicleContainer: {
+    marginTop: 5,
   },
 });
 
