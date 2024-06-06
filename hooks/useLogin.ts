@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
+import Driver from "~/models/Driver";
 
 interface LoginResponse {
   token: string;
-  user: {
-    name: string;
-    email: string;
-  };
+  driver: Driver;
 }
 
 const useLogin = (username: string, password: string) => {
@@ -21,9 +19,12 @@ const useLogin = (username: string, password: string) => {
       // Simulate successful login
       setData({
         token: "fake-bearer-token",
-        user: {
+        driver: {
           name: "John Doe",
           email: "john@example.com",
+          assignedCars: ["car-1", "car-2"],
+          assignedRoutes: ["route-1", "route-2"],
+          password: "password",
         },
       });
     } catch (err) {

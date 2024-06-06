@@ -5,16 +5,16 @@ import useLogin from "~/hooks/useLogin";
 
 export const useAuthStore = create<AuthState>((set) => ({
   isAuthenticated: false,
-  user: null,
+  driver: null,
   authenticate: async (username: string, password: string) => {
     const { data } = useLogin(username, password);
     if (data) {
       await SecureStore.setItemAsync("userToken", data.token);
-      set({ isAuthenticated: true, user: data.user });
+      set({ isAuthenticated: true, driver: data.driver });
     }
   },
   logout: async () => {
     await SecureStore.deleteItemAsync("userToken");
-    set({ isAuthenticated: false, user: null });
+    set({ isAuthenticated: false, driver: null });
   },
 }));

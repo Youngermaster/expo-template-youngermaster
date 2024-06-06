@@ -1,11 +1,8 @@
-interface User {
-  name: string;
-  email: string;
-}
+import Driver from "~/models/Driver";
 
 interface AuthState {
   isAuthenticated: boolean;
-  user: User | null;
+  driver: Driver | null;
   authenticate: (username: string, password: string) => void;
   logout: () => void;
 }
