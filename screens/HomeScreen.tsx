@@ -2,9 +2,12 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import Button from "~/components/atoms/Button";
 import { useAuthStore } from "~/stores/AuthStore";
+import useDriverStore from "~/stores/DriverStore";
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
-  const { driver, logout } = useAuthStore();
+  const { logout } = useAuthStore();
+  const driver = useDriverStore((state) => state.driver);
+  console.log("Driver Data:", driver);
 
   return (
     <View style={styles.container}>

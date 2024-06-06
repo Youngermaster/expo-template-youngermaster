@@ -1,20 +1,31 @@
 import { create } from "zustand";
 import * as SecureStore from "expo-secure-store";
 import AuthState from "~/models/AuthState";
-import useLogin from "~/hooks/useLogin";
+import login from "~/hooks/useLogin";
+import useDriverStore from "~/stores/DriverStore";
 
-export const useAuthStore = create<AuthState>((set) => ({
-  isAuthenticated: false,
-  driver: null,
-  authenticate: async (username: string, password: string) => {
-    const { data } = useLogin(username, password);
-    if (data) {
-      await SecureStore.setItemAsync("userToken", data.token);
-      set({ isAuthenticated: true, driver: data.driver });
-    }
-  },
-  logout: async () => {
-    await SecureStore.deleteItemAsync("userToken");
-    set({ isAuthenticated: false, driver: null });
-  },
-}));
+export const useAuthStore = create<AuthState>((set) => {
+  const { setDriver } = useDriverStore.getState();
+
+  return {
+    isAuthenticated: false,
+    driver: null,
+    authenticate: async (username: string, password: string) => {
+      try {
+        console.log(username, password);
+        const data = await login(username, password);
+        await SecureStore.setItemAsync("userToken", data.token);
+        console.log("Data:", data);
+        setDriver(data.driver); // Set driver information in DriverStore
+        set({ isAuthenticated: true, driver: data.driver });
+      } catch (error) {
+        console.log("Authentication failed:", error);
+      }
+    },
+    logout: async () => {
+      await SecureStore.deleteItemAsync("userToken");
+      setDriver(null); // Clear driver information in DriverStore
+      set({ isAuthenticated: false, driver: null });
+    },
+  };
+});
