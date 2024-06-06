@@ -25,6 +25,8 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
     <SafeAreaView style={styles.container}>
       <Text>Hi, {driver?.name}!</Text>
       <Text>Welcome to the Home Page!</Text>
+
+      <Text>These are your available Vehicles:</Text>
       <ScrollView style={styles.vehicleContainer}>
         {vehicles.map((vehicle) => (
           <View key={vehicle.id}>
