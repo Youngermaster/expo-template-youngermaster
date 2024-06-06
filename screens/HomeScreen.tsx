@@ -4,11 +4,11 @@ import Button from "~/components/atoms/Button";
 import { useAuthStore } from "~/stores/AuthStore";
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
-  const logout = useAuthStore((state) => state.logout);
+  const { user, logout } = useAuthStore();
 
   return (
     <View style={styles.container}>
-      <Text>Hi, name!</Text>
+      <Text>Hi, {user?.name}!</Text>
       <Text>Welcome to the Home Page!</Text>
       <Button
         title="Logout"

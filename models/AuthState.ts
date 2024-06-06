@@ -1,6 +1,12 @@
+interface User {
+  name: string;
+  email: string;
+}
+
 interface AuthState {
   isAuthenticated: boolean;
-  authenticate: () => void;
+  user: User | null;
+  authenticate: (username: string, password: string) => void;
   logout: () => void;
 }
 

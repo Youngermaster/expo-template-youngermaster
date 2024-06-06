@@ -6,10 +6,10 @@ import { useAuthStore } from "~/stores/AuthStore";
 const LoginScreen = ({ navigation }: { navigation: any }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const authenticate = useAuthStore((state) => state.authenticate);
+  const { authenticate } = useAuthStore();
 
   const handleLogin = () => {
-    authenticate();
+    authenticate(username, password);
     navigation.navigate("Home");
   };
 
