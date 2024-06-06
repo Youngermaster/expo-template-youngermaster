@@ -9,13 +9,11 @@ const login = async (
   username: string,
   password: string
 ): Promise<LoginResponse> => {
-  console.log("Logging in...");
   try {
     // ! Later on we will replace this with a real network request
     // ! and use a real authentication system passing the username and password.
     // Simulate network request delay and response
     await new Promise((resolve) => setTimeout(resolve, 500));
-    console.log("Login successful!");
     return {
       token: "fake-bearer-token",
       driver: {
@@ -27,7 +25,7 @@ const login = async (
       },
     };
   } catch (err) {
-    console.log(err);
+    console.error(err);
     throw new Error("Failed to login");
   }
 };

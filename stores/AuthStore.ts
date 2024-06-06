@@ -12,14 +12,12 @@ export const useAuthStore = create<AuthState>((set) => {
     driver: null,
     authenticate: async (username: string, password: string) => {
       try {
-        console.log(username, password);
         const data = await login(username, password);
         await SecureStore.setItemAsync("userToken", data.token);
-        console.log("Data:", data);
         setDriver(data.driver); // Set driver information in DriverStore
         set({ isAuthenticated: true, driver: data.driver });
       } catch (error) {
-        console.log("Authentication failed:", error);
+        console.error("Authentication failed:", error);
       }
     },
     logout: async () => {
