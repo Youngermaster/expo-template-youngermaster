@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput, Image } from "react-native";
+import { TextInput, Image, KeyboardAvoidingView } from "react-native";
 import Button from "~/components/atoms/Button";
 import { useAuthStore } from "~/stores/AuthStore";
 import styles from "./styles";
@@ -15,7 +15,7 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <Image
         source={require("~/images/mobile_encryption.png")}
         style={styles.image}
@@ -34,7 +34,7 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
         style={styles.input}
       />
       <Button title="Login" onPress={handleLogin} />
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
