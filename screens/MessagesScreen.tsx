@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from "react-native";
 const MessagesScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>Messages Page</Text>
+      <Text style={styles.title}>Messages Page</Text>
     </View>
   );
 };
@@ -14,6 +14,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 16,
   },
 });
 

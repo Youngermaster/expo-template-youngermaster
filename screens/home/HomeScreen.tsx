@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import { View, Text, SafeAreaView, ScrollView } from "react-native";
-import Button from "~/components/atoms/Button";
-import { useAuthStore } from "~/stores/AuthStore";
 import useDriverStore from "~/stores/DriverStore";
 import useVehicleStore from "~/stores/VehicleStore";
 import getVehicles from "~/hooks/useVehicles";
@@ -9,7 +7,6 @@ import VehicleCard from "~/components/atoms/VehicleCard";
 import styles from "./styles";
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
-  const { logout } = useAuthStore();
   const driver = useDriverStore((state) => state.driver);
   const { vehicles, setVehicles } = useVehicleStore();
 
@@ -38,13 +35,6 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
           </View>
         ))}
       </ScrollView>
-      <Button
-        title="Logout"
-        onPress={() => {
-          logout();
-          navigation.navigate("Login");
-        }}
-      />
     </SafeAreaView>
   );
 };
