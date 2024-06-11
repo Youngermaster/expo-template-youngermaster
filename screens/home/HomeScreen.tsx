@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import { View, Text, SafeAreaView, StyleSheet, ScrollView } from "react-native";
+import { View, Text, SafeAreaView, ScrollView } from "react-native";
 import Button from "~/components/atoms/Button";
 import { useAuthStore } from "~/stores/AuthStore";
 import useDriverStore from "~/stores/DriverStore";
 import useVehicleStore from "~/stores/VehicleStore";
 import getVehicles from "~/hooks/useVehicles";
 import VehicleCard from "~/components/atoms/VehicleCard";
+import styles from "./styles";
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
   const { logout } = useAuthStore();
@@ -47,17 +48,5 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 10,
-  },
-  vehicleContainer: {
-    marginTop: 5,
-  },
-});
 
 export default HomeScreen;

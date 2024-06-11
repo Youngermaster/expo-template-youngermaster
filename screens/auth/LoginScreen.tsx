@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { View, TextInput, StyleSheet, Image, Dimensions } from "react-native";
+import { View, TextInput, Image } from "react-native";
 import Button from "~/components/atoms/Button";
 import { useAuthStore } from "~/stores/AuthStore";
+import styles from "./styles";
 
 const LoginScreen = ({ navigation }: { navigation: any }) => {
   const [username, setUsername] = useState("");
@@ -36,24 +37,5 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 20,
-  },
-  input: {
-    marginBottom: 12,
-    borderWidth: 1,
-    padding: 10,
-  },
-  image: {
-    resizeMode: "contain",
-    height: Dimensions.get("window").height * 0.4,
-    width: "100%",
-    marginVertical: 10,
-  },
-});
 
 export default LoginScreen;
