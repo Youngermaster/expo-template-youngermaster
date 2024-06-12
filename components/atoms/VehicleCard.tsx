@@ -36,11 +36,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
     marginHorizontal: 10,
-    marginBottom: 16,
+    marginVertical: 10,
   },
   detailsContainer: {
-    flex: 1,
-    paddingRight: 10,
+    paddingRight: 20,
   },
   vehicleName: {
     fontSize: 18,
@@ -53,7 +52,7 @@ const styles = StyleSheet.create({
   },
   vehicleImage: {
     width: 150,
-    height: 150,
+    height: 100,
     borderRadius: 10,
   },
 });
