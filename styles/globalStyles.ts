@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
+import colors from "~/styles/colors";
 
 export const styles = StyleSheet.create({
   button: {
     elevation: 8,
-    backgroundColor: "#39BF68",
+    backgroundColor: colors.greenVolt,
     borderRadius: 10,
     paddingVertical: 10,
     paddingHorizontal: 12,

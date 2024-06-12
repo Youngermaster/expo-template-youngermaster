@@ -1,6 +1,7 @@
 import React from "react";
 import Onboarding from "react-native-onboarding-swiper";
 import { Button, Dimensions, Image, StyleSheet } from "react-native";
+import colors from "~/styles/colors";
 
 const OnboardingScreen = ({ navigation }: { navigation: any }) => {
   return (
@@ -22,7 +23,7 @@ const OnboardingScreen = ({ navigation }: { navigation: any }) => {
           subTitleStyles: styles.subtitle,
         },
         {
-          backgroundColor: "#39BF68",
+          backgroundColor: colors.greenVolt,
           image: (
             <Image
               source={require("../images/bike_ride.png")}
@@ -35,7 +36,7 @@ const OnboardingScreen = ({ navigation }: { navigation: any }) => {
           subtitle: "Description of Onboarding 2",
         },
         {
-          backgroundColor: "#FFFFFF",
+          backgroundColor: colors.white,
           image: (
             <Image
               source={require("../images/claim_points.png")}
