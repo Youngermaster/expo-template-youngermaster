@@ -10,7 +10,7 @@ const OnboardingScreen = ({ navigation }: { navigation: any }) => {
       onDone={() => navigation.navigate("Login")}
       pages={[
         {
-          backgroundColor: "#fff",
+          backgroundColor: colors.white,
           image: (
             <Image
               source={require("~/images/the_world_is_mine.png")}

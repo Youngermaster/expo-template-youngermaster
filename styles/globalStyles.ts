@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 18,
-    color: "#FFF",
+    color: colors.white,
     fontWeight: "bold",
     alignSelf: "center",
     textTransform: "uppercase",
