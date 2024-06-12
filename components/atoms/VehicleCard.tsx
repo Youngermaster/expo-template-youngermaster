@@ -4,7 +4,7 @@ import Vehicle from "~/models/Vehicle";
 import colors from "~/styles/colors";
 
 const VehicleCard: React.FC<Vehicle> = ({ plate, assignedDrivers }) => {
-  console.log(plate, assignedDrivers);
+
   return (
     <View style={styles.cardContainer}>
       <View style={styles.detailsContainer}>
