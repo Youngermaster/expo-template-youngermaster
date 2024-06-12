@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 14,
-    color: "#888",
+    color: colors.gray_2,
   },
 });
 
